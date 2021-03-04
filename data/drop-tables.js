@@ -4,22 +4,18 @@ const { getEmoji } = require('../lib/emoji.js');
 run();
 
 async function run() {
-
   try {
     await client.connect();
-    
+
     await client.query(`
             DROP TABLE IF EXISTS users CASCADE;
-            DROP TABLE IF EXISTS animals;
+            DROP TABLE IF EXISTS todos;
         `);
 
     console.log(' drop tables complete', getEmoji(), getEmoji(), getEmoji());
-  }
-  catch(err) {
+  } catch (err) {
     console.log(err);
-  }
-  finally {
+  } finally {
     client.end();
   }
-    
 }
